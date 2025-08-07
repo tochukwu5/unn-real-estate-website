@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Real Estate App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "build": "npm install --legacy-peer-deps && cd ../client && npm install --legacy-peer-deps && npm run build"
+  },
+  "author": "Salman Muazam",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.7.0",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.5",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.2",
+    "streamifier": "^0.1.1",
+    "validator": "^13.11.0"
+  }
+}
