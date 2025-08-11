@@ -18,14 +18,8 @@ import useTypedSelector from "../../hooks/useTypedSelector";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { MdOutlineDeleteSweep } from "react-icons/md";
 // Firebase Storage
-import {
-  getStorage,
-  ref,
-  getDownloadURL,
-  UploadTask,
-  uploadBytesResumable,
-} from "firebase/storage";
-import { app } from "../../firebase";
+
+
 // Redux Imports
 import {
   useDeleteMutation,
@@ -88,51 +82,54 @@ const Profile = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file]);
 
-  const handleFileUpload = async (file: File) => {
-    try {
-      const storage = getStorage(app);
-      const fileName = new Date().getTime() + file.name;
-      const storageRef = ref(storage, fileName);
-      const uploadTask: UploadTask = uploadBytesResumable(storageRef, file);
+  // handleFileUpload
 
-      // Attach event handlers using the task method
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          // progress function
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          setFilePercentage(progress);
-        },
-        (error) => {
-          // Error function
-          console.error(error);
-          setFileUploadError(true);
-        },
-        async () => {
-          // complete function
-          try {
-            const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-            setFormData({ ...formData, avatar: downloadURL });
-            setFile(null);
-          } catch (error) {
-            // Handle any errors during getDownloadURL
-            console.error(error);
-          }
-        }
-      );
-    } catch (error) {
-      // Handle any errors in the try block
-      console.error("File Upload Error", error);
-      setToast({
-        ...toast,
-        message: "Something went wrong",
-        appearence: true,
-        type: "error",
-      });
-    }
-  };
+
+  const handleFileUpload = async (file: File) => {
+  try {
+    const formDataToSend = new FormData();
+    formDataToSend.append("file", file);
+    formDataToSend.append("upload_preset", "unsigned_preset"); // Replace with your Cloudinary upload preset
+
+    // Optional: track upload progress with XMLHttpRequest
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://api.cloudinary.com/v1_1/dgtrh0bl4/image/upload"); // Replace with your Cloud name
+
+    xhr.upload.onprogress = (event) => {
+      if (event.lengthComputable) {
+        const progress = Math.round((event.loaded / event.total) * 100);
+        setFilePercentage(progress);
+      }
+    };
+
+    xhr.onload = () => {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        setFormData({ ...formData, avatar: response.secure_url });
+        setFile(null);
+        setFileUploadError(false);
+      } else {
+        setFileUploadError(true);
+      }
+    };
+
+    xhr.onerror = () => {
+      setFileUploadError(true);
+    };
+
+    xhr.send(formDataToSend);
+  } catch (error) {
+    console.error("Cloudinary Upload Error", error);
+    setFileUploadError(true);
+    setToast({
+      ...toast,
+      message: "Something went wrong uploading image",
+      appearence: true,
+      type: "error",
+    });
+  }
+};
+
 
   const hideShowPassword = () => {
     setShowPassword(!showPassword);

@@ -50,7 +50,7 @@ const About = () => {
             >
               <Box sx={{ width: "75px", height: "75px" }}>
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/real-estate-54ca1.appspot.com/o/1701424117897salman%20passport.jpg?alt=media&token=a903aba6-b78e-4442-b0c0-f07c0dfa145f"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDzTLiQfZt1FJPKE25gm_nnyOdpYdWkLrJxg&s"
                   alt="salman"
                   style={{ width: "100%", height: "100%", borderRadius: "50%" }}
                 />
@@ -71,7 +71,7 @@ const About = () => {
             >
               <Box sx={{ width: "75px", height: "75px" }}>
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/real-estate-54ca1.appspot.com/o/1701198186809Hassan.jpg?alt=media&token=881f2f1b-b0d4-4933-9b4a-79259d313f42"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDzTLiQfZt1FJPKE25gm_nnyOdpYdWkLrJxg&s"
                   alt="hassan"
                   style={{ width: "100%", height: "100%", borderRadius: "50%" }}
                 />
@@ -92,7 +92,7 @@ const About = () => {
             >
               <Box sx={{ width: "75px", height: "75px" }}>
                 <img
-                  src="https://firebasestorage.googleapis.com/v0/b/real-estate-54ca1.appspot.com/o/1701198124445Faizan.jpg?alt=media&token=560ccfc3-f5f4-430c-b55d-d6a0357c7be2"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDzTLiQfZt1FJPKE25gm_nnyOdpYdWkLrJxg&s"
                   alt="salman"
                   style={{ width: "100%", height: "100%", borderRadius: "50%" }}
                 />

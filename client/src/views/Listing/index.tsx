@@ -16,14 +16,7 @@ import {
 // Utils Imports
 import { onKeyDown } from "../../utils";
 // Firebase Imports
-import {
-  UploadTask,
-  getDownloadURL,
-  getStorage,
-  ref,
-  uploadBytesResumable,
-} from "firebase/storage";
-import { app } from "../../firebase";
+
 // Redux Imports
 import {
   useCreateListingMutation,
@@ -93,13 +86,15 @@ const CreateListing = () => {
   };
 
   const UploadHandler = () => {
-    if (listingImages.length === 0)
+    if (listingImages.length === 0){
+      console.log("No images selected");
       return setImageError("Please select an image");
-
+    }
     if (listingImages.length + imageUrls.length < 7) {
       setImageLoading(true);
       const promises = [];
       for (let i = 0; i < listingImages.length; i++) {
+        console.log("Uploading image:", listingImages[i].name);
         promises.push(UploadImage(listingImages[i]));
       }
 
@@ -120,34 +115,43 @@ const CreateListing = () => {
     }
   };
 
-  const UploadImage = async (image: any) => {
-    return new Promise((resolve, reject) => {
-      const storage = getStorage(app);
-      const fileName = new Date().getTime() + image.name;
-      const storageRef = ref(storage, fileName);
-      const uploadTask: UploadTask = uploadBytesResumable(storageRef, image);
+  // UploadImage
 
-      // Attach event handlers using the task method
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          // progress function
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          console.log(progress);
-        },
-        (error) => {
-          reject(error);
-        },
-        () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            resolve(downloadURL);
-          });
+
+  
+  // Remove or comment out the Firebase upload function
+
+// Replace it with:
+
+// ======================for cloudinary storage================================
+
+const UploadImage = async (image: any) => {
+  return new Promise(async (resolve, reject) => {
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "unsigned_preset"); // replace this
+
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dgtrh0bl4/upload", // replace this
+        {
+          method: "POST",
+          body: formData,
         }
       );
-    });
-  };
+      const data = await res.json();
+      if (data.secure_url) {
+        resolve(data.secure_url);
+      } else {
+        reject("Upload failed");
+      }
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
+
 
   // Create Listing API bind
   const [createListing, { isLoading }] = useCreateListingMutation();

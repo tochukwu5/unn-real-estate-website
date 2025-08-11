@@ -7,9 +7,9 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAH9olthlVbKbhPwRjjUcI9qrC-t2FTDbM",
-  authDomain: "mern-estate-4ef21.firebaseapp.com",
+  authDomain:  "mern-estate-4ef21.firebaseapp.com",
   projectId: "mern-estate-4ef21",
-  storageBucket: "mern-estate-4ef21.firebasestorage.app",
+  // storageBucket: "mern-estate-4ef21.firebasestorage.app",
   messagingSenderId: "612501541254",
   appId: "1:612501541254:web:9004a0b3c5529ee044dc07"
 };
