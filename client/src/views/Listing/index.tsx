@@ -498,7 +498,7 @@ const UploadImage = async (image: any) => {
                                     fontSize: "12px",
                                   }}
                                 >
-                                  (Rs.)
+                                  (₦)
                                 </span>
                               )}
                             </SubHeading>

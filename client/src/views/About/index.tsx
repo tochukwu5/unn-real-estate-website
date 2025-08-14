@@ -11,26 +11,17 @@ const About = () => {
         <Grid item xs={8}>
           <Heading>About RealEstate</Heading>
           <Box sx={{ margin: "20px 0", color: "#334155", fontSize: "16px" }}>
-            RealEstate is a leading real estate agency that specializes in
-            helping clients buy, sell, and rent properties in the most desirable
-            neighborhoods. Our team of experienced agents is dedicated to
-            providing exceptional service and making the buying and selling
-            process as smooth as possible.
+            Our platform is designed to make it easy for students and landlords to connect. Whether you are looking for a place to stay or you have a property to rent out, we provide a simple and reliable way to get it done.
             <br />
             <br />
-            Our mission is to help our clients achieve their real estate goals
-            by providing expert advice, personalized service, and a deep
-            understanding of the local market. Whether you are looking to buy,
-            sell, or rent a property, we are here to help you every step of the
-            way.
+            We focus mainly on student lodgings and rentals around the University of Nigeria, Nsukka, but anyone can post or find properties that meet their needs. Once you register, you can list your lodge, hostel, or apartment for free, and students can browse and contact you directly.
             <br />
             <br />
-            Our team of agents has a wealth of experience and knowledge in the
-            real estate industry, and we are committed to providing the highest
-            level of service to our clients. We believe that buying or selling a
-            property should be an exciting and rewarding experience, and we are
-            dedicated to making that a reality for each and every one of our
-            clients.
+            Our goal is to make house hunting less stressful and more transparent. We give users the tools to post clear pictures, prices, and details so that everyone knows exactly what to expect before making a decision.
+            <br />
+            <br />
+            Whether you are a student searching for a comfortable place or a landlord looking for tenants, this platform is here to connect you quickly and easily.
+
           </Box>
           <Box
             sx={{

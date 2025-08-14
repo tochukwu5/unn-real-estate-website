@@ -41,10 +41,10 @@ const iconStyle = {
 };
 
 const images = [
-  "https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://scontent.fabb1-2.fna.fbcdn.net/v/t45.5328-4/515367250_588416757659858_5168157314114587498_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=111&ccb=1-7&_nc_sid=247b10&_nc_eui2=AeEN7ETUls8rT-MNppp36zAE2rdZOdVoejXat1k51Wh6NRzRDfeIvUAea_YlA3ho3u8qfzHeXEeF-tTfe3DMgRdo&_nc_ohc=HaroNNBStLoQ7kNvwFr2MjQ&_nc_oc=AdlBXMaTSNKQRhpa1JyNApyyxeXDhlISQJ5CUMwX1GkV6VrcvjrE6pDF_TWMIheaHbQ&_nc_zt=23&_nc_ht=scontent.fabb1-2.fna&_nc_gid=rbWJM5m3Xs0AwbWrphHi4g&oh=00_AfW2IF5r--R3PTNMIbxLtdHfhVFjRWH8mIewA9NVLwI88w&oe=68A3191A",
+  "https://scontent.fabb1-1.fna.fbcdn.net/v/t39.30808-6/523408279_775005745184690_4877149708201511437_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=101&ccb=1-7&_nc_sid=454cf4&_nc_eui2=AeHhxYKI-QWHdwXILFX7FwvSj2icL57TWRCPaJwvntNZEOUxIs3Gwe8g1lkp-wbNIya0YBorSNLGQ4Bbdf0nb58e&_nc_ohc=dPEqHmIakoYQ7kNvwEtV0Y4&_nc_oc=AdkRn-am547N1J4oC9_tY-DQ9lI7hktDZsqvxLqAKeMB_MmH9sAgJtE83QS4MHxGgf0&_nc_zt=23&_nc_ht=scontent.fabb1-1.fna&_nc_gid=gTGF8nlp-OtIQxx_D9wXaw&oh=00_AfV0rpeQKZEAw2epb9AZBP0ez8udopdKEcEB4fae9Nqxhg&oe=68A2F9F2",
+  "https://scontent.fabb1-1.fna.fbcdn.net/v/t39.30808-6/521505103_122110886468940451_8223940093385627429_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=103&ccb=1-7&_nc_sid=454cf4&_nc_eui2=AeFeXxGqYppKvywNiIUI6ZoGO9WRystyBbg71ZHKy3IFuPJlOfY-bdn94KXRt5-Ow48js8byBNUnjPdIjS1HXKoQ&_nc_ohc=DCgO1yOIdasQ7kNvwFr0pfk&_nc_oc=Adnv0zGvLpcCuWwuY89c_32rOU3P9adb2SXD5XkYcg0YYlg2TlTG7bbI9d5-vDHY8Jo&_nc_zt=23&_nc_ht=scontent.fabb1-1.fna&_nc_gid=JZ0l4fFhbO-7rwvoqdyo8g&oh=00_AfUdGUa7YehdAA-BbPolIf1x8AgkpdSaM3O68zYAT6fsYA&oe=68A31239",
+  "https://scontent.fabb1-1.fna.fbcdn.net/v/t39.30808-6/516895895_3079822622183973_1486460758938832470_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=108&ccb=1-7&_nc_sid=946e27&_nc_eui2=AeFY1H_Cld9IF_NkPA9aEF9AoZQgyO0SpgihlCDI7RKmCHodb9YHtAtqGp1vh7LFg5rvGu39hEglaVy5QiOXH9qf&_nc_ohc=QjM8uKqCuisQ7kNvwFs0JJd&_nc_oc=AdmhCO32fmOI4rvxyWhLbaDo_sfRD65YfLfCwMiA0YXunKSDrS03yyCWM2csg4dX2J0&_nc_zt=23&_nc_ht=scontent.fabb1-1.fna&_nc_gid=9k7621aWw2I0anFtL3UVXg&oh=00_AfWzPzR-n5I82myGkejsXSbBuQobaWlA6GgNYIGZtRBhTA&oe=68A2ED05",
 ];
 
 const Home = () => {
@@ -157,7 +157,7 @@ const Home = () => {
             }}
           >
             <img
-              src="https://images.unsplash.com/photo-1618219788702-20a1ef509691?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="huzHome.jpg"
               alt="listing"
               style={{
                 width: "100%",
@@ -345,7 +345,7 @@ const Home = () => {
                             gap: "5px",
                           }}
                         >
-                          Rs.{" "}
+                          ₦{""}
                           {thousandSeparatorNumber(
                             item?.regularPrice - item?.discountedPrice
                           )}{" "}
@@ -520,7 +520,7 @@ const Home = () => {
                           gap: "5px",
                         }}
                       >
-                        Rs. {thousandSeparatorNumber(item?.regularPrice)}{" "}
+                       ₦{thousandSeparatorNumber(item?.regularPrice)}{""}
                         {item?.type === "rent" ? "/ month" : ""}
                         <Box>
                           {item?.type === "rent" ? (
@@ -691,7 +691,7 @@ const Home = () => {
                           gap: "5px",
                         }}
                       >
-                        Rs. {thousandSeparatorNumber(item?.regularPrice)}{" "}
+                        ₦{thousandSeparatorNumber(item?.regularPrice)}{""}
                         {item?.type === "rent" ? "/ month" : ""}
                         <Box>
                           {item?.type === "rent" ? (

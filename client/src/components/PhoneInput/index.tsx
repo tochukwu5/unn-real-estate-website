@@ -35,7 +35,7 @@ const PrimaryPhoneInput = ({
   readOnly,
   showErrorMessage,
 }: PhoneNumberProps) => {
-  const [defaultCountry, setDefaultCountry] = useState<string>("pk");
+  const [defaultCountry, setDefaultCountry] = useState<string>("ng");
   const [loader, setLoader] = useState(false);
 
   const getCountry = async () => {
@@ -51,11 +51,11 @@ const PrimaryPhoneInput = ({
       ) {
         setDefaultCountry(response.data.country_code.toLowerCase());
       } else {
-        setDefaultCountry("pk");
+        setDefaultCountry("ng");
       }
     } catch (error) {
       console.warn(error);
-      setDefaultCountry("pk");
+      setDefaultCountry("ng");
     } finally {
       setLoader(false);
     }
@@ -82,7 +82,7 @@ const PrimaryPhoneInput = ({
           },
         },
         defaultCountry:
-          countryCode ? countryCode.toLowerCase() : defaultCountry || "pk",
+          countryCode ? countryCode.toLowerCase() : defaultCountry || "ng",
         onChange: (phoneValue: string) => {
           if (onChange) {
             onChange(phoneValue);

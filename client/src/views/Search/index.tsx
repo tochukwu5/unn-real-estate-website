@@ -418,7 +418,7 @@ const SearchPage = () => {
                               gap: "5px",
                             }}
                           >
-                            Rs. {thousandSeparatorNumber(item?.regularPrice)}{" "}
+                           ₦{thousandSeparatorNumber(item?.regularPrice)}{""}
                             {item?.type === "rent" ? "/ month" : ""}
                             <Box>
                               {item?.type === "rent" ? (

@@ -64,7 +64,7 @@ const ViewListing = () => {
           <Grid container spacing={2}>
             <Grid item xs={1}></Grid>
             <Grid item xs={7} sx={{ paddingRight: "30px" }}>
-              <Heading>{`${data?.data?.name} - Rs.${thousandSeparatorNumber(
+              <Heading>{`${data?.data?.name} - ₦${thousandSeparatorNumber(
                 data?.data?.regularPrice
               )}/`}</Heading>
               <Box
@@ -118,7 +118,7 @@ const ViewListing = () => {
                         alignItems: "center",
                       }}
                     >
-                      Rs. {thousandSeparatorNumber(data?.data?.discountedPrice)}{" "}
+                      ₦{thousandSeparatorNumber(data?.data?.discountedPrice)}{" "}
                       discount
                     </Box>
                     <Box
@@ -133,7 +133,7 @@ const ViewListing = () => {
                         alignItems: "center",
                       }}
                     >
-                      Now Rs.{" "}
+                      Now ₦{""}
                       {thousandSeparatorNumber(
                         data?.data?.regularPrice - data?.data?.discountedPrice
                       )}
