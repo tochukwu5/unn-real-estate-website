@@ -131,7 +131,12 @@ const Header = () => {
               }}
               sx={{ display: "flex", cursor: "pointer" }}
             >
-              <Heading sx={{ color: "#64748b" }}>Real</Heading>
+                <img
+    src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn6AtO-QbtwxxvPHuQrxqpBy_yHoVkzxbRGA&s'}
+    alt="Logo"
+    style={{ width: "40px", height: "40px", borderRadius: "5px", marginRight:"8px" }}
+  />
+              <Heading sx={{ color: "#64748b" }}> UNN</Heading>
               <Heading sx={{ color: "#334155" }}>Estate</Heading>
             </Box>
           </Grid>

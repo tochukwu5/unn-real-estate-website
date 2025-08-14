@@ -424,7 +424,7 @@ const UploadImage = async (image: any) => {
                         >
                           <Box sx={{ width: "100%" }}>
                             <SubHeading sx={{ marginBottom: "5px" }}>
-                              Beds
+                              Bedroom
                             </SubHeading>
                             <PrimaryInput
                               type="number"
@@ -448,7 +448,7 @@ const UploadImage = async (image: any) => {
                           </Box>
                           <Box sx={{ width: "100%" }}>
                             <SubHeading sx={{ marginBottom: "5px" }}>
-                              Baths
+                              Bathroom
                             </SubHeading>
                             <PrimaryInput
                               type="number"
@@ -580,7 +580,7 @@ const UploadImage = async (image: any) => {
                           >
                             <FormControlLabel
                               control={<Checkbox />}
-                              label="Parking Spot"
+                              label="Water supply"
                               name="parking"
                               checked={values.parking}
                               onChange={handleChange}

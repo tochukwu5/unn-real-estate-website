@@ -107,7 +107,7 @@ const Home = () => {
               },
             }}
           >
-            Find your next <span style={{ color: "#64748b" }}>Perfect</span>
+           Find Your Ideal <span style={{ color: "#64748b" }}>Student Lodge</span>
           </Heading>
           <Heading
             sx={{
@@ -118,12 +118,14 @@ const Home = () => {
               },
             }}
           >
-            place with ease
+            with Ease
           </Heading>
           <SubHeading sx={{ margin: "20px 0", color: "#64748b" }}>
-            RealEstate will help you find your home fast, easy and comfortable.
+           UNNEstate connects UNN students to comfortable, affordable, and convenient lodges.
+Fast search and verified listings.
             <br />
-            Our expert support are always available.
+           
+           your perfect home is just a click away.
           </SubHeading>
           <Box
             sx={{
@@ -393,13 +395,13 @@ const Home = () => {
                               <FaBed
                                 style={{ color: "#334155", marginTop: "3px" }}
                               />
-                              {item?.bedrooms} Beds
+                              {item?.bedrooms} Bedroom
                             </Box>
                             <Box sx={iconStyle}>
                               <FaBath
                                 style={{ color: "#334155", marginTop: "3px" }}
                               />
-                              {item?.bathrooms} Baths
+                              {item?.bathrooms} Bathroom
                             </Box>
                           </Box>
                         </Box>
@@ -565,13 +567,13 @@ const Home = () => {
                             <FaBed
                               style={{ color: "#334155", marginTop: "3px" }}
                             />
-                            {item?.bedrooms} Beds
+                            {item?.bedrooms} Bedroom
                           </Box>
                           <Box sx={iconStyle}>
                             <FaBath
                               style={{ color: "#334155", marginTop: "3px" }}
                             />
-                            {item?.bathrooms} Baths
+                            {item?.bathrooms} Bathroom
                           </Box>
                         </Box>
                       </Box>
@@ -736,13 +738,13 @@ const Home = () => {
                             <FaBed
                               style={{ color: "#334155", marginTop: "3px" }}
                             />
-                            {item?.bedrooms} Beds
+                            {item?.bedrooms} Bedroom
                           </Box>
                           <Box sx={iconStyle}>
                             <FaBath
                               style={{ color: "#334155", marginTop: "3px" }}
                             />
-                            {item?.bathrooms} Baths
+                            {item?.bathrooms} Bathroom
                           </Box>
                         </Box>
                       </Box>

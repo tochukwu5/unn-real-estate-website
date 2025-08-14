@@ -9,7 +9,7 @@ const About = () => {
       <Grid container spacing={2}>
         <Grid item xs={2}></Grid>
         <Grid item xs={8}>
-          <Heading>About RealEstate</Heading>
+          <Heading>About UNNEstate</Heading>
           <Box sx={{ margin: "20px 0", color: "#334155", fontSize: "16px" }}>
             Our platform is designed to make it easy for students and landlords to connect. Whether you are looking for a place to stay or you have a property to rent out, we provide a simple and reliable way to get it done.
             <br />
@@ -41,13 +41,13 @@ const About = () => {
             >
               <Box sx={{ width: "75px", height: "75px" }}>
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDzTLiQfZt1FJPKE25gm_nnyOdpYdWkLrJxg&s"
+                  src="https://scontent.fabb1-3.fna.fbcdn.net/v/t39.30808-6/472154780_577042228570627_1733174131445923007_n.jpg?stp=c0.67.612.612a_dst-jpg_s206x206_tt6&_nc_cat=105&ccb=1-7&_nc_sid=50ad20&_nc_eui2=AeEFXKuq51r-6nzMPxsXeBoCbeiuqqsKlH9t6K6qqwqUf4RYQm11a19YqBPQIzV_sBpV7T0J2eYJC7oyj-XGECgQ&_nc_ohc=6wwn-8SQVOAQ7kNvwH3yPVB&_nc_oc=AdlR0Bws4_a2LiI_FKjpR_Kun-XvRQAnp-zd0Y5pX7E2ELkS0AYK0s5pBSmi7x-xa_4&_nc_zt=23&_nc_ht=scontent.fabb1-3.fna&_nc_gid=GPY7fcpHYH7MVkgrQ_G4SA&oh=00_AfW5eCC1xRFJvNMCAPBIB1KRE6Gw8VbNDjmLUUzMVOtUXw&oe=68A37E88"
                   alt="salman"
                   style={{ width: "100%", height: "100%", borderRadius: "50%" }}
                 />
               </Box>
-              <SubHeading sx={{ marginTop: "10px" }}>Salman Muazam</SubHeading>
-              <Box>0323 4910955</Box>
+              <SubHeading sx={{ marginTop: "10px" }}>Emeremgini Tochi</SubHeading>
+              <Box>+234 708 867 9581</Box>
               <Heading sx={{ fontSize: "14px", marginTop: "10px" }}>
                 CEO
               </Heading>
@@ -62,15 +62,15 @@ const About = () => {
             >
               <Box sx={{ width: "75px", height: "75px" }}>
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDzTLiQfZt1FJPKE25gm_nnyOdpYdWkLrJxg&s"
+                  src="https://pbs.twimg.com/profile_images/1839254349744144384/fmVGN8iD_400x400.jpg"
                   alt="hassan"
                   style={{ width: "100%", height: "100%", borderRadius: "50%" }}
                 />
               </Box>
-              <SubHeading sx={{ marginTop: "10px" }}>Hassan Raza</SubHeading>
-              <Box>0300 0315440</Box>
+              <SubHeading sx={{ marginTop: "10px" }}>Agbasimere Kingsley</SubHeading>
+              <Box>+234 913 752 9644</Box>
               <Heading sx={{ fontSize: "14px", marginTop: "10px" }}>
-                President
+                Co-Founder & COO
               </Heading>
             </Box>
             <Box
@@ -83,13 +83,13 @@ const About = () => {
             >
               <Box sx={{ width: "75px", height: "75px" }}>
                 <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDzTLiQfZt1FJPKE25gm_nnyOdpYdWkLrJxg&s"
+                  src="https://web-agency-eta.vercel.app/assets/img/team/ezekiel.png"
                   alt="salman"
                   style={{ width: "100%", height: "100%", borderRadius: "50%" }}
                 />
               </Box>
-              <SubHeading sx={{ marginTop: "10px" }}>Ch Faizan</SubHeading>
-              <Box>0355 5032437</Box>
+              <SubHeading sx={{ marginTop: "10px" }}>Chimaroke Ezekiel</SubHeading>
+              <Box>+234 810 950 8188</Box>
               <Heading sx={{ fontSize: "14px", marginTop: "10px" }}>
                 Marketing Manager
               </Heading>

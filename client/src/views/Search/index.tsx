@@ -242,7 +242,7 @@ const SearchPage = () => {
                 />
                 <FormControlLabel
                   control={<Checkbox />}
-                  label="Parking"
+                  label="water supply"
                   name="parking"
                   checked={sideBarData.parking}
                   onChange={() => {
@@ -463,13 +463,13 @@ const SearchPage = () => {
                                 <FaBed
                                   style={{ color: "#334155", marginTop: "3px" }}
                                 />
-                                {item?.bedrooms} Beds
+                                {item?.bedrooms} Bedroom
                               </Box>
                               <Box sx={iconStyle}>
                                 <FaBath
                                   style={{ color: "#334155", marginTop: "3px" }}
                                 />
-                                {item?.bathrooms} Baths
+                                {item?.bathrooms} Bathroom
                               </Box>
                             </Box>
                           </Box>

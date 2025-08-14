@@ -15,7 +15,8 @@ import { maskingPhoneNumber, thousandSeparatorNumber } from "../../../utils";
 // React Icons
 import { FaLocationDot } from "react-icons/fa6";
 import { FaBath } from "react-icons/fa";
-import { FaParking } from "react-icons/fa";
+// import { FaParking } from "react-icons/fa";
+import { FaShower } from "react-icons/fa6";
 import { FaChair } from "react-icons/fa6";
 import { FaBed } from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
@@ -156,15 +157,15 @@ const ViewListing = () => {
               >
                 <Box sx={iconStyle}>
                   <FaBed style={{ color: "#15803d" }} />
-                  {data?.data?.bedrooms} Beds
+                  {data?.data?.bedrooms} Bedroom
                 </Box>
                 <Box sx={iconStyle}>
                   <FaBath style={{ color: "#15803d" }} />
-                  {data?.data?.bathrooms} Baths
+                  {data?.data?.bathrooms} Bathroom
                 </Box>
                 <Box sx={iconStyle}>
-                  <FaParking style={{ color: "#15803d" }} />
-                  {data?.data?.parking ? "Parking" : "No Parking"}
+                  <FaShower style={{ color: "#15803d" }} />
+                water supply:  {data?.data?.parking ? "Yes" : "No"}
                 </Box>
                 <Box sx={iconStyle}>
                   <FaChair style={{ color: "#15803d" }} />
