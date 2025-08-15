@@ -274,7 +274,7 @@ const Header = () => {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <svg
-            className="w-6 h-6"
+            className="w-6 h-6 hamburger-btn"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
