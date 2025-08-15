@@ -24,8 +24,11 @@ code {
   }
 }
 
-.css-q9o358-MuiButtonBase-root-MuiIconButton-root {
-  background-color: #f82020; 
+
+.hamburger-btn {
+  background-color: #5274942a;
   width: 50px;
-  height: 20px;
+  height: 50px;
+  color: #ffffff;
 }
+
