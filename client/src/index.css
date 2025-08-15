@@ -23,3 +23,9 @@ code {
     height: 300px;
   }
 }
+
+.css-q9o358-MuiButtonBase-root-MuiIconButton-root {
+  background-color: #f82020; 
+  width: 50px;
+  height: 20px;
+}

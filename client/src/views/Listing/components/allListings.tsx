@@ -129,13 +129,13 @@ const AllListings = () => {
                     key={item?._id}
                   >
                     <Box sx={{ display: "flex" }}>
-                      <Grid item xs={2}>
+                      <Grid item xs={3}>
                         <img
                           src={item?.imageUrls[0]}
-                          width={100}
+                          width={120}
                           height={140}
                           alt="listing"
-                          style={{ borderRadius: "5px" }}
+                          style={{ borderRadius: "5px",}}
                         />
                       </Grid>
                       <Grid item xs={10}>
