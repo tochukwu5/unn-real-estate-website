@@ -305,7 +305,16 @@ const UploadImage = async (image: any) => {
 
                 return (
                   <Form onKeyDown={onKeyDown} style={{ width: "100%" }}>
-                    <Box sx={{ display: "flex", gap: 2 }}>
+                    <Box 
+                    // sx={{ display: "flex", gap: 2 }}
+                    sx={{
+  display: "flex",
+  flexDirection: { xs: "column", sm: "row" }, // column on mobile, row on larger screens
+  gap: 2, // spacing between items (applies both vertically and horizontally)
+  mt: { xs: 2, sm: 0 } // margin-top only on mobile
+}}
+
+                    >
                       <Grid item xs={6}>
                         <Box
                           sx={{
@@ -617,12 +626,21 @@ const UploadImage = async (image: any) => {
                             </span>
                           </SubHeading>
                           <Box
+                            // sx={{
+                            //   display: "flex",
+                            //   alignItems: "center",
+                            //   justifyContent: "space-between",
+                            //   gap: 2,
+                            // }}
+
                             sx={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "space-between",
-                              gap: 2,
-                            }}
+  display: "flex",
+  flexDirection: { xs: "column", sm: "row" }, // column on mobile, row from sm and up
+  alignItems: "center",
+  justifyContent: "space-between",
+  gap: 2,
+}}
+
                           >
                             <Box
                               sx={{

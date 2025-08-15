@@ -176,7 +176,10 @@ const SearchPage = () => {
         </Box>
       )}
       <Grid container spacing={2}>
-        <Grid item xs={3}>
+        <Grid item 
+        xs={12} md={3}
+        // xs={3}
+        >
           <Heading sx={{ margin: "0 0 5px 20px" }}>Filters</Heading>
           <Box
             sx={{
@@ -304,7 +307,10 @@ const SearchPage = () => {
             </form>
           </Box>
         </Grid>
-        <Grid item xs={9}>
+        <Grid item 
+        // xs={9}
+        xs={12} md={9}
+        >
           <Box
             sx={{
               padding: "0 20px",
@@ -333,7 +339,9 @@ const SearchPage = () => {
               ) : (
                 <>
                   {listings?.map((item: any, index: number) => (
-                    <Grid item xs={4} key={index}>
+                    //  <Grid item xs={4} key={index}>
+                    <Grid item xs={12} sm={6} md={4} key={index}>
+
                       <Box
                         sx={{
                           background: "#fff",

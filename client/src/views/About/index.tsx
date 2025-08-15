@@ -25,10 +25,13 @@ const About = () => {
           </Box>
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              margin: "80px 0 75px 0",
+      
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "80px 0 75px 0",
+          flexDirection: { xs: "column", sm: "row" }, // 👈 responsive change
+          gap: { xs: 4, sm: 0 }
             }}
           >
             <Box

@@ -1,3 +1,246 @@
+// React Imports
+import { useParams } from "react-router-dom";
+import React, { useState } from "react";
+// MUI Imports
+import { Box, Grid, Divider } from "@mui/material";
+// Swiper Imports
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+import { Navigation } from "swiper/modules";
+import "swiper/css/bundle";
+// Component Imports
+import OverlayLoader from "../../../components/Spinner/OverlayLoader";
+import { Heading, SubHeading } from "../../../components/Heading";
+// Utils Imports
+import { maskingPhoneNumber, thousandSeparatorNumber } from "../../../utils";
+// React Icons
+import { FaLocationDot } from "react-icons/fa6";
+import { FaBath } from "react-icons/fa";
+import { FaShower } from "react-icons/fa6";
+import { FaChair } from "react-icons/fa6";
+import { FaBed } from "react-icons/fa";
+import { IoIosCall } from "react-icons/io";
+import { HiOutlineMail } from "react-icons/hi";
+import { IoMdPerson } from "react-icons/io";
+// Redux Imports
+import { useGetUserQuery } from "../../../redux/api/userApiSlice";
+import { useGetSingleListingQuery } from "../../../redux/api/listingApiSlice";
+
+const iconStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "5px",
+  color: "#15803d",
+  fontWeight: "bold",
+};
+
+const ViewListing = () => {
+  const { id } = useParams();
+  SwiperCore.use([Navigation]);
+
+  const { data, isLoading } = useGetSingleListingQuery(id);
+  const images: string[] = data?.data?.imageUrls || [];
+
+  // User API Query
+  const { data: userData, isLoading: isUserLoading } = useGetUserQuery(id);
+
+  // Orientation State
+  const [imageOrientation, setImageOrientation] = useState<{ [key: number]: boolean }>({});
+
+  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>, index: number) => {
+    const img = e.currentTarget;
+    const isPortrait = img.naturalHeight > img.naturalWidth;
+    setImageOrientation((prev) => ({
+      ...prev,
+      [index]: isPortrait,
+    }));
+  };
+
+  return (
+    <>
+      {(isLoading || isUserLoading) && <OverlayLoader />}
+      <Box>
+        {/* Image Swiper */}
+        <Swiper navigation={true}>
+          {images.map((image: string, index: number) => (
+            <SwiperSlide key={image}>
+              <img
+                src={image}
+                alt="listing"
+                onLoad={(e) => handleImageLoad(e, index)}
+                style={{
+                  width: "100%",
+                  height: "500px",
+                  objectFit: imageOrientation[index] ? "contain" : "cover",
+                  backgroundColor: "#f5f5f5",
+                }}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* Listing Details */}
+        <Box sx={{ margin: "30px 0", padding: "0 50px" }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={8} sx={{ paddingRight: { xs: "0", md: "30px" } }}>
+              <Heading>{`${data?.data?.name} - ₦${thousandSeparatorNumber(
+                data?.data?.regularPrice
+              )}/ Month`}</Heading>
+              <Box
+                sx={{
+                  marginTop: "20px",
+                  marginBottom: "15px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px",
+                  color: "#475569",
+                  fontWeight: 600,
+                }}
+              >
+                <FaLocationDot style={{ color: "#15803d" }} />
+                {data?.data?.address}
+              </Box>
+
+              {/* Price / Type / Discount */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", sm: "row" },
+                  alignItems: { xs: "flex-start", sm: "center" },
+                  gap: 1,
+                  margin: "10px 0",
+                }}
+              >
+                <Box
+                  sx={{
+                    background: "#7b4c22",
+                    color: "#fff",
+                    borderRadius: "5px",
+                    padding: "5px 10px",
+                    width: { xs: "100%", sm: "200px" },
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    fontWeight: "bold",
+                  }}
+                >
+                  {data?.data?.type === "rent" ? "Rent" : "Sale"}
+                </Box>
+                {data?.data?.discountedPrice > 0 && (
+                  <>
+                    <Box
+                      sx={{
+                        background: "#14532d",
+                        color: "#fff",
+                        borderRadius: "5px",
+                        padding: "5px 10px",
+                        width: { xs: "100%", sm: "200px" },
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      ₦{thousandSeparatorNumber(data?.data?.discountedPrice)} discount
+                    </Box>
+                    <Box
+                      sx={{
+                        background: "#6CB4EE",
+                        color: "#fff",
+                        borderRadius: "5px",
+                        padding: "5px 10px",
+                        width: { xs: "100%", sm: "200px" },
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      Now ₦
+                      {thousandSeparatorNumber(
+                        data?.data?.regularPrice - data?.data?.discountedPrice
+                      )}
+                      /
+                    </Box>
+                  </>
+                )}
+              </Box>
+
+              {/* Description */}
+              <Box sx={{ display: "flex", flexDirection: "column", marginTop: "15px" }}>
+                <SubHeading>Description</SubHeading>
+                <Box sx={{ color: "#1e293b" }}>{data?.data?.description}</Box>
+              </Box>
+
+              {/* Bedroom, Bathroom, Water Supply, Furnished */}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: { xs: "column", sm: "row" },
+                  gap: 2,
+                  marginTop: "15px",
+                }}
+              >
+                <Box sx={iconStyle}>
+                  <FaBed style={{ color: "#15803d" }} />
+                  {data?.data?.bedrooms} Bedroom
+                </Box>
+                <Box sx={iconStyle}>
+                  <FaBath style={{ color: "#15803d" }} />
+                  {data?.data?.bathrooms} Bathroom
+                </Box>
+                <Box sx={iconStyle}>
+                  <FaShower style={{ color: "#15803d" }} />
+                  Water supply: {data?.data?.parking ? "Yes" : "No"}
+                </Box>
+                <Box sx={iconStyle}>
+                  <FaChair style={{ color: "#15803d" }} />
+                  {data?.data?.furnished ? "Furnished" : "Not Furnished"}
+                </Box>
+              </Box>
+            </Grid>
+
+            {/* Owner Details */}
+            <Grid item xs={12} md={4}>
+              <Box
+                sx={{
+                  margin: "20px 0",
+                  background: "#fff",
+                  borderRadius: "6px",
+                  padding: "15px 20px",
+                  boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 10px",
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                }}
+              >
+                <Heading sx={{ fontSize: "18px", display: "flex", alignItems: "center", gap: 1 }}>
+                  Owner Details
+                </Heading>
+                <Divider />
+                <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    <IoMdPerson /> Name: <span>{userData?.data?.username}</span>
+                  </Box>
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    <HiOutlineMail /> Email: <span>{userData?.data?.email}</span>
+                  </Box>
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    <IoIosCall /> Phone: <span>{maskingPhoneNumber(data?.data?.phoneNumber)}</span>
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+    </>
+  );
+};
+
+export default ViewListing;
+
+
+
 // // React Imports
 // import { useParams } from "react-router-dom";
 // // MUI Imports
@@ -280,286 +523,3 @@
 // export default ViewListing;
 
 
-
-// React Imports
-import { useParams } from "react-router-dom";
-import React, { useState } from "react";
-// MUI Imports
-import { Box, Grid, Divider } from "@mui/material";
-// Swiper Imports
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore from "swiper";
-import { Navigation } from "swiper/modules";
-import "swiper/css/bundle";
-// Component Imports
-import OverlayLoader from "../../../components/Spinner/OverlayLoader";
-import { Heading, SubHeading } from "../../../components/Heading";
-// Utils Imports
-import { maskingPhoneNumber, thousandSeparatorNumber } from "../../../utils";
-// React Icons
-import { FaLocationDot } from "react-icons/fa6";
-import { FaBath } from "react-icons/fa";
-import { FaShower } from "react-icons/fa6";
-import { FaChair } from "react-icons/fa6";
-import { FaBed } from "react-icons/fa";
-import { IoIosCall } from "react-icons/io";
-import { HiOutlineMail } from "react-icons/hi";
-import { IoMdPerson } from "react-icons/io";
-// Redux Imports
-import { useGetUserQuery } from "../../../redux/api/userApiSlice";
-import { useGetSingleListingQuery } from "../../../redux/api/listingApiSlice";
-
-const iconStyle = {
-  display: "flex",
-  alignItems: "center",
-  gap: "5px",
-  color: "#15803d",
-  fontWeight: "bold",
-};
-
-const ViewListing = () => {
-  const { id } = useParams();
-  SwiperCore.use([Navigation]);
-
-  const { data, isLoading } = useGetSingleListingQuery(id);
-  const images: string[] = data?.data?.imageUrls || [];
-
-  // User API Query
-  const { data: userData, isLoading: isUserLoading } = useGetUserQuery(id);
-
-  // Orientation State
-  const [imageOrientation, setImageOrientation] = useState<{ [key: number]: boolean }>({});
-
-  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>, index: number) => {
-    const img = e.currentTarget;
-    const isPortrait = img.naturalHeight > img.naturalWidth;
-    setImageOrientation((prev) => ({
-      ...prev,
-      [index]: isPortrait,
-    }));
-  };
-
-  return (
-    <>
-      {(isLoading || isUserLoading) && <OverlayLoader />}
-      <Box>
-        <Swiper navigation={true}>
-          {images.map((image: string, index: number) => (
-            <SwiperSlide key={image}>
-              <img
-                src={image}
-                alt="listing"
-                onLoad={(e) => handleImageLoad(e, index)}
-                style={{
-                  width: "100%",
-                  height: "500px",
-                  objectFit: imageOrientation[index] ? "contain" : "cover",
-                  backgroundColor: "#f5f5f5",
-                }}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-
-        <Box sx={{ margin: "30px 0" }}>
-          <Grid container spacing={2}>
-            <Grid item xs={1}></Grid>
-            <Grid item xs={7} sx={{ paddingRight: "30px" }}>
-              <Heading>{`${data?.data?.name} - ₦${thousandSeparatorNumber(
-                data?.data?.regularPrice
-              )}/ Month`}</Heading>
-              <Box
-                sx={{
-                  marginTop: "20px",
-                  marginBottom: "15px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "5px",
-                  color: "#475569",
-                  fontweight: 600,
-                }}
-              >
-                <FaLocationDot style={{ color: "#15803d" }} />
-                {data?.data?.address}
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  margin: "10px 0",
-                }}
-              >
-                <Box
-                  sx={{
-                    background: "#7b4c22",
-                    color: "#fff",
-                    borderRadius: "5px",
-                    padding: "5px 10px",
-                    width: "200px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {data?.data?.type === "rent" ? "Rent" : "Sale"}
-                </Box>
-                {data?.data?.discountedPrice > 0 && (
-                  <>
-                    <Box
-                      sx={{
-                        background: "#14532d",
-                        color: "#fff",
-                        borderRadius: "5px",
-                        padding: "5px 10px",
-                        width: "200px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      ₦{thousandSeparatorNumber(data?.data?.discountedPrice)} discount
-                    </Box>
-                    <Box
-                      sx={{
-                        background: "#6CB4EE",
-                        color: "#fff",
-                        borderRadius: "5px",
-                        padding: "5px 10px",
-                        width: "200px",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                      }}
-                    >
-                      Now ₦
-                      {thousandSeparatorNumber(
-                        data?.data?.regularPrice - data?.data?.discountedPrice
-                      )}
-                      /
-                    </Box>
-                  </>
-                )}
-              </Box>
-              <Box sx={{ display: "flex", gap: 2, marginTop: "15px" }}>
-                <SubHeading>Description </SubHeading>
-                <Box sx={{ color: "#1e293b" }}>{data?.data?.description}</Box>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 2,
-                  marginTop: "15px",
-                }}
-              >
-                <Box sx={iconStyle}>
-                  <FaBed style={{ color: "#15803d" }} />
-                  {data?.data?.bedrooms} Bedroom
-                </Box>
-                <Box sx={iconStyle}>
-                  <FaBath style={{ color: "#15803d" }} />
-                  {data?.data?.bathrooms} Bathroom
-                </Box>
-                <Box sx={iconStyle}>
-                  <FaShower style={{ color: "#15803d" }} />
-                  Water supply: {data?.data?.parking ? "Yes" : "No"}
-                </Box>
-                <Box sx={iconStyle}>
-                  <FaChair style={{ color: "#15803d" }} />
-                  {data?.data?.furnished ? "Furnished" : "Not Furnished"}
-                </Box>
-              </Box>
-            </Grid>
-            <Grid item xs={3}>
-              <Box
-                sx={{
-                  margin: "0 0 20px 0",
-                  background: "#fff",
-                  borderRadius: "6px",
-                  padding: "15px 20px",
-                  boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 10px",
-                  width: "100%",
-                }}
-              >
-                <Heading
-                  sx={{
-                    margin: "5px 0",
-                    fontSize: "18px",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  Owner Details
-                </Heading>
-                <Divider />
-                <Box
-                  sx={{
-                    margin: "15px 0 10px 0",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      minWidth: "100px",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "3px",
-                    }}
-                  >
-                    <IoMdPerson /> Name
-                  </Box>
-                  <Box>{userData?.data?.username}</Box>
-                </Box>
-                <Box
-                  sx={{
-                    margin: "15px 0 10px 0",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      minWidth: "100px",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "3px",
-                    }}
-                  >
-                    <HiOutlineMail /> Email
-                  </Box>
-                  <Box>{userData?.data?.email}</Box>
-                </Box>
-                <Box
-                  sx={{
-                    margin: "15px 0 10px 0",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      minWidth: "100px",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "3px",
-                    }}
-                  >
-                    <IoIosCall /> Phone
-                  </Box>
-                  <Box>{maskingPhoneNumber(data?.data?.phoneNumber)}</Box>
-                </Box>
-              </Box>
-            </Grid>
-            <Grid item xs={1}></Grid>
-          </Grid>
-        </Box>
-      </Box>
-    </>
-  );
-};
-
-export default ViewListing;
