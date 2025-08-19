@@ -1,7 +1,10 @@
 
-# MERN 🏛 Real Estate App
+# 🏛 UNNEstate (MERN stack)
 
-Real Estate App built on the MERN (MongoDB, Express, React, Node.js) stack. Whether you're looking to explore available properties for rent or sale, or you want to manage your own listings, our app has got you covered!
+This is a Real Estate Web Application built with the MERN stack (MongoDB, Express.js, React, Node.js).
+The platform allows users to browse available properties for rent or sale, while property owners can create and manage their own listings with ease.
+
+The goal of this project is to provide a simple, user-friendly solution that makes it easier for UNN students and residents around Nsukka (or want to residents around Nsukka) to find accommodation or list their properties in one place.
 
 
 ## Features
@@ -33,6 +36,8 @@ View Your Listings
 
 **Firebase:** Google account authentication, Image Uploading
 
+**cloudinary:**  for Uploading Images
+
 
 
 
@@ -41,33 +46,31 @@ View Your Listings
 
 ## Screenshots
 
-![signup](https://i.postimg.cc/Gtt1X9qz/Sign-Up.png)
+![entirepage](https://i.postimg.cc/tJgwgQLT/entirepage.png)
 
-![Sign in](https://i.postimg.cc/LXqcPGX0/Log-in.png)
+![home](https://i.postimg.cc/jCYnvZxH/home.png)
 
-![Dashboard](https://i.postimg.cc/J4Bh8d5x/Home.png)
+![sign up](https://i.postimg.cc/28FXh57t/signup.png)
 
-![About](https://i.postimg.cc/kX9nrXDJ/About.png)
+![sign in](https://i.postimg.cc/bYWxsRhN/login.png)
 
-![Profile](https://i.postimg.cc/DwT5dHCY/Profile.png)
+![rent](https://i.postimg.cc/253Hs7Np/renthuz.png)
 
-![Listing a](https://i.postimg.cc/9FWrdBdY/Create-Listing-a.png)
+![sale](https://i.postimg.cc/6pbcf42M/salehuz.png)
 
-![Listing b](https://i.postimg.cc/xjk3MnPP/Create-Listing-b.png)
+![viewhuz](https://i.postimg.cc/P5Mxg1zM/viewhuz.png)
 
-![Update Listing](https://i.postimg.cc/KYDx06rq/Update-Listing.png)
+![about](https://i.postimg.cc/gcChYkVx/aboutpg.png)
 
-![Listing Lists](https://i.postimg.cc/cCnDm8VQ/Listing-Lists.png)
+![create_listing](https://i.postimg.cc/MG6KWg3M/createlisting.png)
 
-![Listing View](https://i.postimg.cc/Z0kJ7p0Z/Listing-View.png)
+![listing](https://i.postimg.cc/2SqgnGqc/listing.png)
 
-![Filter 1](https://i.postimg.cc/sDFkQVhk/Filter-1.png)
+![Filters page](https://i.postimg.cc/XJSMjz8S/filterpage.png)
 
-![Filter 2](https://i.postimg.cc/bvJnxfnP/Filter-2.png)
+![profile](https://i.postimg.cc/vmzDgWC2/profile.png)
 
-![Filter 3](https://i.postimg.cc/XJ6VVw4P/Filter-3.png)
 
-![Filter 4](https://i.postimg.cc/cHxbMHmH/Filter-4.png)
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -77,7 +80,6 @@ To run this project, you will need to add the following environment variables to
 ```bash
  NODE_ENV:  development
  PORT:      8000
-#  PORT:      5000
  DATABASE:  Insert your MongoDB database connection link
 ```
 
@@ -85,7 +87,6 @@ To run this project, you will need to add the following environment variables to
 
 ```bash
  REACT_APP_API_URL:  'http://127.0.0.1:8000/api/v1/'
-#  REACT_APP_API_URL:  'http://127.0.0.1:5000/api/v1/'
 ```
 
 ```bash
@@ -98,9 +99,8 @@ To run this project, you will need to add the following environment variables to
 ### ROUTES
 
 - Endpoint: `http://127.0.0.1:8000/api/v1/users`
-<!-- - Endpoint: `http://127.0.0.1:5000/api/v1/users` -->
+
 - Endpoint: `http://127.0.0.1:8000/api/v1/listings`
-<!-- - Endpoint: `http://127.0.0.1:5000/api/v1/listings` -->
 
 ### USER API
 
@@ -154,10 +154,10 @@ To run this project, you will need to add the following environment variables to
 - **Method:** `PUT`
 - **Endpoint:** `/:id`
 
-<div align="center">
+<div  align="center">
 
 ---
 
-Made with ❤️ by Tochi
+Made with ❤️ by Tochukwu
 
 </div>
