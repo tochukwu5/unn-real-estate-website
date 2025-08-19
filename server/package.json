@@ -4,9 +4,9 @@
   "description": "Real Estate App",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node init && node server.js",
     "server": "nodemon server.js",
-    "build": "npm install --legacy-peer-deps && cd ../client && npm install --legacy-peer-deps && npm run build"
+    "build": "node init && npm install --legacy-peer-deps && cd ../client && npm install --legacy-peer-deps && npm run build"
   },
   "author": "Salman Muazam",
   "license": "ISC",
