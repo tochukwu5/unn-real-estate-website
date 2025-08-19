@@ -4,7 +4,7 @@
   "description": "Real Estate App",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node api.js && node server.js",
     "server": "nodemon server.js",
     "build": "npm install --legacy-peer-deps && cd ../client && npm install --legacy-peer-deps && npm run build"
   },
