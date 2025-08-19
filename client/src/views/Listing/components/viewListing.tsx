@@ -85,7 +85,7 @@ const ViewListing = () => {
             <Grid item xs={12} md={8} sx={{ paddingRight: { xs: "0", md: "30px" } }}>
               <Heading>{`${data?.data?.name} - ₦${thousandSeparatorNumber(
                 data?.data?.regularPrice
-              )}/ Month`}</Heading>
+              )}  ${data?.data?.type === "sale" ? "" : "/ Month"}` }</Heading>
               <Box
                 sx={{
                   marginTop: "20px",
